@@ -16,6 +16,7 @@ const importData = async () => {
     } catch (err) {
         console.error(err.message);
     }
+    return process.exit()
 }
 
 // Delete all data from DataBase
@@ -26,6 +27,7 @@ const deleteData = async () => {
     } catch (err) {
         console.error(err.message);
     }
+    return process.exit()
 }
 
 if (process.argv[2] === '--import') importData()
