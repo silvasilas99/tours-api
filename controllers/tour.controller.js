@@ -28,6 +28,11 @@ exports.getTours = async (req, res) => {
             query = query.select('-__v');
         }
 
+        // Pagination
+        const count =+ req.query.count || 100;
+        const page =+ req.query.page || 1;
+        query = query.skip(count * (page - 1)).limit(count);
+        
         const tours = await query;
 
         return res.status(200).json({
